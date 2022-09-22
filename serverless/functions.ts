@@ -1,7 +1,7 @@
 import type { AWS } from "@serverless/typescript";
 
 const functions: AWS["functions"] = {
-  setUrl: {
+  setReminder: {
     handler: "src/functions/setReminder/index.handler",
     events: [
       {
@@ -12,14 +12,25 @@ const functions: AWS["functions"] = {
       },
     ],
   },
-  getUrl: {
-    handler: "src/functions/getUrl/index.handler",
+  sendReminder: {
+    handler: "src/functions/sendReminder/index.handler",
     events: [
       {
-        httpApi: {
-          path: "/{code}",
-          method: "get",
+        stream: {
+          type: "dynamodb",
+          arn: {
+            "Fn::GetAtt": ["reminderTable", "StreamArn"],
+          },
+          filterPatterns: [{ eventName: ["REMOVE"] }],
         },
+      },
+    ],
+    //@ts-expect-error
+    iamRoleStatements: [
+      {
+        Effect: "Allow",
+        Action: ["ses:sendEmail", "sns:Publish"],
+        Resource: "*",
       },
     ],
   },
