@@ -2,7 +2,7 @@ import type { AWS } from "@serverless/typescript";
 
 const functions: AWS["functions"] = {
   setUrl: {
-    handler: "src/functions/setUrl/index.handler",
+    handler: "src/functions/setReminder/index.handler",
     events: [
       {
         httpApi: {
