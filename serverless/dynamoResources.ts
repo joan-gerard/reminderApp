@@ -36,6 +36,9 @@ const dynamoResources: AWS["resources"]["Resources"] = {
       GlobalSecondaryIndexes: [
         {
           IndexName: "index1",
+          Projection: {
+            ProjectionType: "ALL",
+          },
           KeySchema: [
             {
               AttributeName: "pk",
