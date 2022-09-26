@@ -38,6 +38,7 @@ export const handler = async (event: APIGatewayProxyEvent) => {
       data: {
         message: `reminder is set for ${new Date(reminderDate).toDateString()}`,
         id: data.id,
+        reminderMessage,
       },
     });
   } catch (error) {
