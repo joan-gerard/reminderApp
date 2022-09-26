@@ -8,7 +8,7 @@ These are the steps I followed:
 
 2. Adding an expiry date (Time-To-Live or TTL) to the records in the database.
 
-3. Adding a stream to the database table.
+3. Adding a stream to the database table and creating a lambda to make use of AWS SES and SNS
 
 4. Ading Global Secondary Index to allow querying on the table based on a parameter
 
