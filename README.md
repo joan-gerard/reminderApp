@@ -1,4 +1,4 @@
-# Reminder App
+# Reminder App - AWS Serverless
 
 This reminder app enables us to get notified of a reminder either via email or text message.
 
