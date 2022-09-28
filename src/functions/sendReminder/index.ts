@@ -29,9 +29,8 @@ export const handler = async (event: DynamoDBStreamEvent) => {
       if (email) {
         await sendEmail({ email, reminderMessage });
       }
-
-      await Promise.all(reminderPromises);
     });
+    await Promise.all(reminderPromises);
   } catch (error) {
     console.log("error", error);
   }
@@ -70,6 +69,7 @@ const sendEmail = async ({
   return response.MessageId;
 };
 
+// ----------------------------------------
 const sendSMS = async ({
   phoneNumber,
   reminderMessage,

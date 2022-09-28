@@ -40,7 +40,7 @@ const functions: AWS["functions"] = {
     iamRoleStatements: [
       {
         Effect: "Allow",
-        Action: ["ses:sendEmail", "sns:Publish"],
+        Action: ["ses:SendEmail", "sns:Publish"],
         Resource: "*",
       },
     ],
